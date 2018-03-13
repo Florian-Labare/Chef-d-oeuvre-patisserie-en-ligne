@@ -1,6 +1,6 @@
 <?php
 
-class Dough
+class Doughs
 {
 
   private static function createStatement($sql)
@@ -20,6 +20,26 @@ class Dough
            $pdo_statement = null;
         }
     return $pdo_statement;
+  }
+
+  public static function create($values)
+  {
+    $sql = 'INSERT INTO doughs (base) VALUES (:base)';
+
+    $ok = false;
+
+    $pdo_statement = self::createStatement($sql);
+
+    if (
+    $pdo_statement &&
+    $pdo_statement->bindParam(
+        ':base', htmlspecialchars($values['base'])
+    ){
+
+    $ok = true;
+
+     }
+    return $ok;
   }
 
 }
