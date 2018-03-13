@@ -1,12 +1,12 @@
 <?php
- 
+
 class Dough
 {
 
   private static function createStatement($sql)
   {
     try {
-    require './config.php'
+    require 'config.php';
 
     $pdo = new PDO(
        "mysql:dbname=$dbname;host=$host;charset=utf8", $user, $password
