@@ -6,13 +6,13 @@ class Doughs
   private static function createStatement($sql)
   {
     try {
-    require 'config.php';
+    require __DIR__.'/config.php';
 
     $pdo = new PDO(
        "mysql:dbname=$dbname;host=$host;charset=utf8", $user, $password
      );
 
-    $pdo_statement = $pdo->preapre($sql);
+    $pdo_statement = $pdo->prepare($sql);
    } catch (PDOException $e) {
 
            echo 'erreur : ' . $e->getMessage();
@@ -22,29 +22,30 @@ class Doughs
     return $pdo_statement;
   }
 
-  public static function create($values)
+  public static function create($base)
   {
     $sql = 'INSERT INTO doughs (base) VALUES (:base)';
 
-    $ok = false;
+      $ok = false;
 
     $pdo_statement = self::createStatement($sql);
 
     if (
        $pdo_statement &&
-       $pdo_statement->bindParam(
-        ':base', htmlspecialchars($values['base'])
+       $pdo_statement->bindParam(':base', $base) &&
+       $pdo_statement->execute()
     ){
 
-      $ok = true;
+     $ok = true;
 
-     }
-    return $ok;
   }
+
+    return $pdo_statement;
+}
 
   public static function readAll()
   {
-    $sql = 'SELECT * FROM doughs deleted_at IS NULL';
+    $sql = 'SELECT * FROM doughs WHERE deleted_at IS NULL';
 
     $doughs = [];
 
@@ -76,7 +77,7 @@ class Doughs
     return $doughs;
   }
 
- public static function update($id, $values)
+ public static function update($id, $base)
  {
    $sql = 'UPDATE doughs SET base=:base WHERE id=:id';
 
@@ -87,9 +88,10 @@ class Doughs
    if (
       $pdo_statement &&
       $pdo_statement->bindParam(':id', $id, PDO::PARAM_INT) &&
-      $pdo_statement->bindParam(':base', htmlspecialchars($values['base'])
+      $pdo_statement->bindParam(':base', $base ['base']) &&
+      $pdo_statement->execute()
       )
-    ){
+    {
       $ok = true;
     }
 
