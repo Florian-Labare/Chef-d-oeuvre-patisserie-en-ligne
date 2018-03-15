@@ -75,4 +75,43 @@ class Creams
 
    return $creams;
  }
+
+  public static function update($id, $name)
+  {
+    $sql = 'UPDATE creams SET name=:name WHERE id=:id';
+
+       $ok = false;
+
+    $pdo_statement = self::createStatement($sql);
+
+  if (
+      $pdo_statement &&
+      $pdo_statement->bindParam(':id', $id, PDO::PARAM_INT) &&
+      $pdo_statement->bindParam(':name', $name ['name']) &&
+      $pdo_statement->execute()
+      )
+    {
+      $ok = true;
+    }
+
+    return $ok;
+ }
+
+  public static function delete($id)
+  {
+    $sql ='UPDATE creams SET deleted_at=CURRENT_TIMESTAMP() WHERE id=:id';
+
+       $ok = false;
+
+   $pdo_statement = self::createStatement($sql);
+
+  if (
+      $pdo_statement &&
+      $pdo_statement->bindParam(':id', $id, PDO::PARAM_INT) &&
+      $pdo_statement->execute()
+  ){
+      $ok = true;
+  }
+    return $ok;
+ }
 }

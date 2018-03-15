@@ -40,7 +40,8 @@ class Doughs
 
   }
 
-    return $pdo_statement;
+    //return $pdo_statement;
+    return $ok;
 }
 
   public static function readAll()
