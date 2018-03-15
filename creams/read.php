@@ -2,7 +2,7 @@
 
 require __DIR__.'/../Models/creamModel.php';
 
-$dough = null;
+$cream = null;
 
 if (isset($_GET['id'])) {
     $cream = Creams::read($_GET['id']);

@@ -2,6 +2,6 @@
 
 require __DIR__.'/../Models/creamModel.php';
 
-$doughs= Creams::readAll();
+$creams = Creams::readAll();
 
 require __DIR__.'/../Views/creams/browse.php';

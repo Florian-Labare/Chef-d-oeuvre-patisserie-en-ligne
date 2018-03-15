@@ -10,7 +10,7 @@
       <div>
         <label>
           Votre base:
-          <input type="text" name="base" value="<?php if(isset($name))echo $name; ?>">
+          <input type="text" name="name" value="<?php if(isset($name))echo $name; ?>">
         </label>
       </div>
       <div>

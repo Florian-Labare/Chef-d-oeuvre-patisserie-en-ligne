@@ -8,7 +8,7 @@ if (isset($_POST['name'])) {
 
     $name = htmlspecialchars($_POST['name']);
 
-    if (Doughs::create($name))
+    if (Creams::create($name))
     {
         header('Location:/Projet Chef d\'Oeuvre/creams/index.php');
         exit;

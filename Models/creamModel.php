@@ -50,9 +50,9 @@ class Creams
 
     $pdo_statement = self::createStatement($sql);
 
-  if ($pdo_statement && $pdo_statement->execute()) {
-    $doughs = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
-   }
+    if ($pdo_statement && $pdo_statement->execute()) {
+      $creams = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     return $creams;
  }
@@ -61,7 +61,7 @@ class Creams
   {
     $sql = 'SELECT * FROM creams WHERE id=:id AND deleted_at IS NULL';
 
-    $creams = null;
+    $cream = null;
 
     $pdo_statement = self::createStatement($sql);
 
@@ -70,10 +70,10 @@ class Creams
        $pdo_statement->bindParam(':id', $id, PDO::PARAM_INT) &&
        $pdo_statement->execute()
    ){
-       $doughs = $pdo_statement->fetch(PDO::FETCH_ASSOC);
+       $cream = $pdo_statement->fetch(PDO::FETCH_ASSOC);
    }
 
-   return $creams;
+   return $cream;
  }
 
   public static function update($id, $name)
