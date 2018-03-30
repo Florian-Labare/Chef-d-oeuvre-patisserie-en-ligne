@@ -10,7 +10,7 @@ if (isset($_POST['base'])) {
 
     if (Doughs::create($base))
     {
-        header('Location:/Projet Chef d\'Oeuvre/doughs/index.php');
+        header('Location:./index');
         exit;
     } else {
         $message = 'Une erreur est survenue pendant la création.';
