@@ -22,7 +22,7 @@
       <?php
       }
       ?>
-      <li><a href="./doughs/add.php">ajouter une pâte</a></li>
+      <li><a href="/Chef-d-oeuvre-patisserie-en-ligne/doughs/add.php">ajouter une pâte</a></li>
     </ul>
   </body>
 </html>

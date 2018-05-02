@@ -50,9 +50,11 @@ class Creams
 
     $pdo_statement = self::createStatement($sql);
 
-    if ($pdo_statement && $pdo_statement->execute()) {
-      $creams = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
-    }
+    if ($pdo_statement &&
+        $pdo_statement->execute())
+       {
+        $creams = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+       }
 
     return $creams;
  }
@@ -80,16 +82,16 @@ class Creams
   {
     $sql = 'UPDATE creams SET name=:name WHERE id=:id';
 
-       $ok = false;
+    $ok = false;
 
     $pdo_statement = self::createStatement($sql);
 
-  if (
+    if (
       $pdo_statement &&
       $pdo_statement->bindParam(':id', $id, PDO::PARAM_INT) &&
       $pdo_statement->bindParam(':name', $name ['name']) &&
       $pdo_statement->execute()
-      )
+    )
     {
       $ok = true;
     }

@@ -5,7 +5,7 @@
     <title> Ajouter sa pâte </title>
   </head>
   <body>
-    <p>Ajoutez votre pâte</p>
+    <p><?php echo $message; ?></p>
     <form action="" method="post">
       <div>
         <label>

@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     if (isset($_POST['name'])) {
 
         if (Creams::update($_GET['id'], $_POST)) {
-            header('Location:../creams/read.php?id=' . $_GET['id']);
+            header('Location:../creams/read.php?id=' . $_GET['id'].'');
             exit;
         }
     } else {

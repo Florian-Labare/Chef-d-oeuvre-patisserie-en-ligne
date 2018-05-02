@@ -5,7 +5,7 @@
     <title> Ajouter sa crème </title>
   </head>
   <body>
-    <p>Ajoutez votre pâte</p>
+    <p>Ajoutez votre crème</p>
     <form action="" method="post">
       <div>
         <label>
